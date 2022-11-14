@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2021 at 03:52 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Oct 30, 2022 at 11:07 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -89,9 +89,9 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`ID`, `Client_ID`, `Name`, `Email`, `BirthDate`, `Mobile`, `Telephone`, `Username`, `Password`, `Client_Type`) VALUES
-(1, 123456789, 'Najd mansour\n', 'Najd.mansoor9@gmail.com\n', '2000-07-04', 594627477, 22488163, 'admin', '1admin', 'admin'),
-(8, 123456789, 'abdallah mohamed', 'abdallah.mohamed.conan@gmail.com', '1999-11-01', 12234345, 345345435, 'colonel', '1colonel', 'owner'),
-(9, 123456789, 'bassem', 'abdallah.mohamed.conan@gmail.com', '2021-12-08', 11322, 123213, 'drcolonel', '1drcolonel', 'customer');
+(1, 123456789, 'Admin', 'admin@gmail.com', '2000-07-04', 594627477, 22488163, 'admin', '1admin', 'admin'),
+(8, 123456789, 'Owner', 'owner@gmail.com', '1999-11-01', 12234345, 345345435, 'owner', '1owner', 'owner'),
+(9, 123456789, 'Customer', 'customer@gmail.com', '2021-12-08', 11322, 123213, 'customer', '1customer', 'customer');
 
 -- --------------------------------------------------------
 
@@ -168,6 +168,7 @@ INSERT INTO `flat_features` (`Flat_ID`, `Has_Heating`, `Has_AirCondition`, `Has_
 --
 
 CREATE TABLE `flat_img` (
+  `images_ID` int(11) NOT NULL,
   `Flat_ID` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -176,15 +177,15 @@ CREATE TABLE `flat_img` (
 -- Dumping data for table `flat_img`
 --
 
-INSERT INTO `flat_img` (`Flat_ID`, `image`) VALUES
-(2, 'flat-1.jpg'),
-(3, 'flat-2.jpg'),
-(4, 'flat-3.jpg'),
-(5, 'flat-4.jpg'),
-(6, 'flat-5.jpg'),
-(7, 'flat-6.jpg'),
-(13, 'flat-13.jpg,flat-14.jpg,flat-15.jpg'),
-(14, 'flat-13.jpg,flat-14.jpg,flat-15.jpg');
+INSERT INTO `flat_img` (`images_ID`, `Flat_ID`, `image`) VALUES
+(1, 2, 'flat-1.jpg,flat-14.jpg,flat-15.jpg'),
+(2, 3, 'flat-2.jpg,flat-14.jpg,flat-15.jpg'),
+(3, 4, 'flat-3.jpg,flat-14.jpg,flat-15.jpg'),
+(4, 5, 'flat-4.jpg,flat-14.jpg,flat-15.jpg'),
+(5, 6, 'flat-5.jpg,flat-14.jpg,flat-15.jpg'),
+(6, 7, 'flat-6.jpg,flat-14.jpg,flat-15.jpg'),
+(7, 13, 'flat-13.jpg,flat-14.jpg,flat-15.jpg'),
+(8, 14, 'flat-13.jpg,flat-14.jpg,flat-15.jpg');
 
 -- --------------------------------------------------------
 
@@ -336,6 +337,7 @@ ALTER TABLE `flat_features`
 -- Indexes for table `flat_img`
 --
 ALTER TABLE `flat_img`
+  ADD PRIMARY KEY (`images_ID`),
   ADD KEY `Flat_ID` (`Flat_ID`);
 
 --
@@ -387,6 +389,12 @@ ALTER TABLE `client`
 --
 ALTER TABLE `flat`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `flat_img`
+--
+ALTER TABLE `flat_img`
+  MODIFY `images_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `flat_nearby`

@@ -31,6 +31,6 @@
           <img src="Assessts/Img/customer.svg" />
         </div>
       </div>
-    </div>    
+    </main>    
   </body>
 </html>

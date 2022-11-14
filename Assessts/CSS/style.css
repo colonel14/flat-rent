@@ -260,6 +260,7 @@ aside.root_aside {
 nav {
   background: #fff;
   box-shadow: 0px 1px 10px #999;
+  padding: 20px 0;
 }
 nav .container {
   display: flex;
@@ -299,9 +300,6 @@ nav .container {
   color: var(--primary-color);
 }
 
-.search-sign {
-  padding: 20px 0;
-}
 .search-sign,
 .account {
   display: flex;
